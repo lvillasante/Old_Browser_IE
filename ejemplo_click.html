@@ -1,0 +1,68 @@
+<html>
+<head>
+	<title>jReject - jQuery Plugin for Simple Browser Rejection</title> 
+	<link rel="stylesheet" href="jquery.reject.css" type="text/css" />
+	<script type="text/javascript" src="jquery-1.7.1.min.js"></script>
+    <script type="text/javascript" src="jquery.reject.min.js"></script> 
+	<script type="text/javascript">
+	//<!--
+	$(function() {
+	/* Demo Codes */
+		$('#demo1').click(function() {
+			$.reject(); // Default Settings
+			return false;
+		});
+
+		$('#demo2').click(function() {
+			$.reject({
+				reject: {
+					chrome: true, // Google Chrome
+					firefox: true, // Mozilla Firefox
+					msie5: true, 
+					msie6: true, 
+					msie7: true
+				},
+				//close: false,   
+				header: 'UPPPSSS ... Disculpe, navegador sin soporte!',   
+        		paragraph1: 'Esta pagina no tiene soporte para Internet Explorer 7 o versiones inferiores',  
+        		paragraph2: 'Si desea disfrutar de nuestro contenido por favor actualize su navegador a:', 
+				closeLink:'Cerrar esta ventana',
+        		closeMessage: 'Cerrar esta ventana bajo el riesgo de no poder ver correctamente  el contenido!',
+				display: ['chrome','firefox','msie','safari','opera'],
+				browserInfo: {  
+            		msie: {  
+                	text: 'Internet Explorer 10',
+                	url: 'http://www.microsoft.com'
+            		}  
+        		}  
+			});
+
+			return false;
+		});
+	});
+	//-->
+	</script>
+</head>
+<body>
+	<div id="wrapper">
+		<h1>jReject: jQuery Browser Rejection</h1>
+		<h2>Ejemplo de uso:</h2>
+
+		<div class="example">
+			<h3>Configuracion por defecto</h3>
+			<a href="#" id="demo1" class="demo">Run Demo</a><br />
+			<p>Si no sucede nada cuando se esta ejecutando este demo, es porque no estás usando IE6!<br>
+Por defecto (sin valores especificados) la función de rechazo sólo rechaza IE5 y IE6.</p>
+		</div>
+
+		<div class="example">
+			<h3>Customize Browsers To Reject</h3>
+			<a href="#" id="demo2" class="demo">Run Demo</a><br />
+
+		</div>
+
+	</div>
+	
+
+</body>
+</html>
